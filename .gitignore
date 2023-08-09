@@ -1,0 +1,5 @@
+.venv/
+venv/
+./venv
+api/sett.py
+db.sqlite3
