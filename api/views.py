@@ -65,8 +65,6 @@ class WhastappAPI():
                 self.answer = flow.ok_message
             else:
                 self.answer = flow.nook_message
-    
-        print(self.answer)
             
     
     
@@ -81,13 +79,8 @@ def webhook(request):
             #SI NO SON IGUALES RETORNAMOS UN MENSAJE DE ERROR
           return "Error de autentificacion."
     data = request.data
-    print(data)
     api = WhastappAPI(data)
     #Flujo de la conversacion
-    print(api.chat_status.status)
-    print(api.answer)
-    print(api.whatsapp_url)
-    print(api.token_wa)
     if api.chat_status.status == 0:
         print(api.chat_status)
         services.enviar_Mensaje_whatsapp(services.text_Message(api.client.phone,api.answer),api.token_wa,api.whatsapp_url)
