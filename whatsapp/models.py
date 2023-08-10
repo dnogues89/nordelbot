@@ -52,7 +52,7 @@ class Message(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     msg_recibed = models.TextField(max_length=1000)
     msg_sended = models.TextField(max_length=1000, blank=True, null=True)
-    id_wap = models.CharField(max_length=50, primary_key=True)
+    id_wap = models.CharField(max_length=400, primary_key=True)
     timestamp = models.IntegerField()
     fecha = models.DateTimeField(auto_now=True)
     type = models.CharField(max_length=15)

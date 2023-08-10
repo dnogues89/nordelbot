@@ -83,7 +83,6 @@ def webhook(request):
     api = WhastappAPI(data)
     #Flujo de la conversacion
     if api.chat_status.status == 0:
-
         services.enviar_Mensaje_whatsapp(services.text_Message(api.client.phone,api.answer),api.token_wa,api.whatsapp_url)
         return HttpResponse('Enviado')
     else:
