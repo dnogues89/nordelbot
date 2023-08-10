@@ -1,5 +1,5 @@
 import requests
-import sett
+from api import sett
 import json
 import time
 
@@ -23,10 +23,10 @@ def obtener_Mensaje_whatsapp(message):
     
     return text
 
-def enviar_Mensaje_whatsapp(data):
+def enviar_Mensaje_whatsapp(data,token,url):
     try:
-        whatsapp_token = sett.whatsapp_token
-        whatsapp_url = sett.whatsapp_url
+        whatsapp_token = token
+        whatsapp_url = url
         headers = {'Content-Type': 'application/json',
                    'Authorization': 'Bearer ' + whatsapp_token}
         print("se envia ", data)
@@ -35,8 +35,10 @@ def enviar_Mensaje_whatsapp(data):
                                  data=data)
         
         if response.status_code == 200:
+            print(response.status_code)
             return 'mensaje enviado', 200
         else:
+            print(response.status_code)
             return 'error al enviar mensaje', response.status_code
     except Exception as e:
         return e,403

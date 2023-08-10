@@ -80,7 +80,7 @@ class ChatFlow(models.Model):
         verbose_name_plural = 'flow'
         
 class Credentials(models.Model):
-    token_wa = models.CharField(max_length=200)
+    token_wa = models.CharField(max_length=500)
     whatsapp_url = models.CharField(max_length=150)
 
     class Meta:
