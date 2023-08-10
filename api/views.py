@@ -71,6 +71,7 @@ class WhastappAPI():
 
 @api_view(['GET','POST'])
 def webhook(request):
+    print(request.method)
     if request.method == "GET":
         if request.GET['hub.verify_token'] == "nordelban_wap_bot":
             #ESCRIBIMOS EN EL NAVEGADOR EL VALOR DEL RETO RECIBIDO DESDE FACEBOOK
@@ -82,7 +83,7 @@ def webhook(request):
     api = WhastappAPI(data)
     #Flujo de la conversacion
     if api.chat_status.status == 0:
-        print(api.chat_status)
+
         services.enviar_Mensaje_whatsapp(services.text_Message(api.client.phone,api.answer),api.token_wa,api.whatsapp_url)
         return HttpResponse('Enviado')
     else:
