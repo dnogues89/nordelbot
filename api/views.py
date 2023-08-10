@@ -72,12 +72,12 @@ class WhastappAPI():
 @api_view(['GET','POST'])
 def webhook(request):
     if request.method == "GET":
-        if request.args.get('hub.verify_token') == "nordelban_wap_bot":
+        if request.GET['hub.verify_token'] == "nordelban_wap_bot":
             #ESCRIBIMOS EN EL NAVEGADOR EL VALOR DEL RETO RECIBIDO DESDE FACEBOOK
-            return request.args.get('hub.challenge')
+            return HttpResponse(request.GET['hub.challenge'])
         else:
             #SI NO SON IGUALES RETORNAMOS UN MENSAJE DE ERROR
-            return "Error de autentificacion."
+            return HttpResponse("Error invalid token")
     data = request.data
     api = WhastappAPI(data)
     #Flujo de la conversacion
