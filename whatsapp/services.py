@@ -1,5 +1,5 @@
 import requests
-from api import sett
+from whatsapp import sett
 import json
 import time
 

@@ -6,7 +6,7 @@ import requests
 
 from .serializer import MessageSerializer
 from whatsapp.models import *
-from api import services
+from whatsapp import services
 import json
 
 class WhastappAPI():
@@ -72,6 +72,7 @@ class WhastappAPI():
 @api_view(['GET','POST'])
 def webhook(request):
     print(request.method)
+    print(request.GET)
     if request.method == "GET":
         if request.GET['hub.verify_token'] == "nordelban_wap_bot":
             #ESCRIBIMOS EN EL NAVEGADOR EL VALOR DEL RETO RECIBIDO DESDE FACEBOOK
