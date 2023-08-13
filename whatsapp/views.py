@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from models import Credentials, ChatFlow, Message, Client, ClientChatStatus
+from .models import Credentials, ChatFlow, Message, Client, ClientChatStatus
 import json
-import services
+from . import services
 
 # Create your views here.
 class WhastappAPI():
